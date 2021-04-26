@@ -12,10 +12,11 @@ Crie um arquivo README.md especificando quais comandos precisamos executar para 
 # Crie a rede
 docker network create pfa_tecdanilo
 
-# sobe o mysql
+# sobe o mysql - alterar o arquivo .env_db se necessário
 docker run --network=pfa_tecdanilo --network-alias=mysql_db  --name mysql_db --rm --env-file .env_db -p 3306:3306 -d mysql:5.7.10
 
 # sobe a api nest onde as migração vão criar e popular o banco de dados com as informações do curso
+# Alterar o arquivo .env_nest se necessário
 docker run --network=pfa_tecdanilo --network-alias=nest_api  --name nest_api --env-file .env_nest --rm -d tecdanilo/nest-typeorm-mysql-pfa:latest
 
 # Sobe o proxy para o nest
