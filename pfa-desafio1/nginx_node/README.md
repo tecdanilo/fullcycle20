@@ -20,5 +20,5 @@ docker run --network=pfa_tecdanilo --network-alias=mysql_db  --name mysql_db --r
 docker run --network=pfa_tecdanilo --network-alias=nest_api  --name nest_api --env-file .env_nest --rm -d tecdanilo/nest-typeorm-mysql-pfa:latest
 
 # Sobe o proxy para o nest
-docker run --network=pfa_tecdanilo --name nginx --rm -p 80:80 -d tecdanilo/nginx-proxy-pfa
+docker run --network=pfa_tecdanilo --name nginx --rm -p 8080:80 -d tecdanilo/nginx-proxy-pfa
 ```
