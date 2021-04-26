@@ -21,4 +21,6 @@ docker run --network=pfa_tecdanilo --network-alias=nest_api  --name nest_api -e 
 
 # Sobe o proxy para o nest
 docker run --network=pfa_tecdanilo --name nginx --rm -p 8080:80 -d tecdanilo/nginx-proxy-pfa
+
+Acessar a URL http://localhost:8080/modules
 ```
