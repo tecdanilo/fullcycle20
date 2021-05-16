@@ -1,0 +1,54 @@
+version : '3'
+
+
+services:
+
+  app:
+    build: ./api
+    container_name: nest_api_desafio2
+    hostname: nest_api
+    env_file:
+      .env_nest
+    depends_on:
+      - mysql
+    
+    networks:
+      - frontend
+      - backend
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - 8000:80
+    depends_on:
+      - app
+    volumes:
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./upload:/site/public
+    networks:
+      - frontend
+    restart: on-failure
+    # command: ["docker-entrypoint.sh"]
+      
+
+  mysql:
+    image: mysql
+    container_name: mysql_db
+    hostname: mysql_db
+    env_file:
+      .env_db
+    volumes:
+      - "./database:/docker-entrypoint-initdb.d"
+      # - "./dbdata:/var/lib/mysql"
+    networks:
+      - backend
+
+networks:
+  frontend:
+    driver: bridge
+
+  backend:
+    driver: bridge
+    internal: true
+
+    

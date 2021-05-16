@@ -1,0 +1,1 @@
+./wait-for.sh tcp mysql mysql_db 3306 && npm run start
