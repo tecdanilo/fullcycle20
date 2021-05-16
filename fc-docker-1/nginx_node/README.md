@@ -8,6 +8,8 @@ Crie um repositório no github com todo o fonte do programa e das imagens gerada
 
 Crie um arquivo README.md especificando quais comandos precisamos executar para que a aplicação funcione recebendo as solicitações na porta 8080 de nosso computador. Lembrando que NÃO utilizaremos Docker-compose nesse desafio.
 
+Para executar, siga os passos abaixo:
+
 ```
 # Crie a rede
 docker network create pfa_tecdanilo
