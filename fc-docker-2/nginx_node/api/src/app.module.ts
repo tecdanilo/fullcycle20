@@ -7,6 +7,7 @@ import { Connection } from 'typeorm';
 import * as path from 'path';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { People } from 'src/models/peoplemodule.entity';
+import { PeoplemoduleService } from './peoplemodule/peoplemodule.service';
 
 @Module({
   imports: [
@@ -29,7 +30,7 @@ import { People } from 'src/models/peoplemodule.entity';
     PeoplemoduleModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, PeoplemoduleService],
 })
 export class AppModule {
   constructor(private connection: Connection) {}
